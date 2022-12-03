@@ -1,0 +1,68 @@
+@namespace(uri="http://www.example.org/myPurchase", prefix="myPurchase")
+package myPurchase;
+
+class Purchasebot {
+	val Action[+] action;
+	val Greeting[+] greeting;
+}
+
+class Greeting {
+	attr String Name;
+}
+
+class Action {
+	attr String Name;
+	ref Action[*] actionsAvailable;
+	val Step[*] step;
+}
+
+class Items {
+	attr String Name;
+	attr int Price;
+}
+
+class PaymentMethod {
+	attr String Name;
+	ref DeliveryLocation[+] deliverylocation;
+}
+
+class DeliveryLocation {
+	attr String Name;
+}
+
+class Home extends DeliveryLocation {
+}
+
+class Store extends DeliveryLocation {
+}
+
+class ProductAction extends Action {
+	val SelectItmemsStep[+] selectitmemsstep;
+	val SelectPaymentMethodStep[+] selectpaymentmethodstep;
+	val SelectDeliveryLocationStep[+] selectdeliverylocationstep;
+}
+
+class TalkAction extends Action {
+	val TalkStep[*] talkstep;
+}
+
+class Step {
+	ref Step nextStep;
+	attr int NumberOfRepeats;
+}
+
+class TalkStep extends Step {
+}
+
+class SelectItmemsStep extends Step {
+	val Items[*] items;
+}
+
+class SelectPaymentMethodStep extends Step {
+	val PaymentMethod[*] paymentmethod;
+}
+
+class SelectDeliveryLocationStep extends Step {
+	val DeliveryLocation[*] deliverylocation;
+}
+

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<myPurchase:Purchasebot
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:myPurchase="http://www.example.org/myPurchase"
+    xsi:schemaLocation="http://www.example.org/myPurchase myPurchase.ecore">
+  <action xsi:type="myPurchase:ProductAction"
+      Name="Buy"
+      actionsAvailable="//@action.0">
+    <selectitmemsstep>
+      <items
+          Name="Item 1"
+          Price="10"/>
+    </selectitmemsstep>
+    <selectpaymentmethodstep>
+      <paymentmethod
+          Name="Debit"
+          deliverylocation="//@action.0/@selectdeliverylocationstep.0/@deliverylocation.0 //@action.0/@selectdeliverylocationstep.0/@deliverylocation.1"/>
+    </selectpaymentmethodstep>
+    <selectdeliverylocationstep>
+      <deliverylocation
+          xsi:type="myPurchase:Home"
+          Name="My Home"/>
+      <deliverylocation
+          xsi:type="myPurchase:Store"
+          Name="Store 1"/>
+    </selectdeliverylocationstep>
+  </action>
+  <action xsi:type="myPurchase:TalkAction"
+      Name="Weather">
+    <talkstep/>
+  </action>
+  <greeting
+      Name="Hello"/>
+</myPurchase:Purchasebot>

@@ -1,0 +1,200 @@
+2022-11-02 15:40:46 INFO  Starting XatkitBot with configuration:
+sun.cpu.isalist=amd64
+sun.desktop=windows
+sun.stdout.encoding=cp850
+sun.io.unicode.encoding=UnicodeLittle
+sun.cpu.endian=little
+java.vendor.url.bug=http://bugreport.sun.com/bugreport/
+file.separator=\
+maven.home=C:\ProgramData\chocolatey\lib\maven\apache-maven-3.8.1\bin\..
+java.specification.maintenance.version=4
+java.vendor=Oracle Corporation
+sun.stderr.encoding=cp850
+sun.boot.class.path=C:\Program Files\Java\jdk1.8.0_351\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_351\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_351\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_351\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_351\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_351\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_351\jre\classes
+java.ext.dirs=C:\Program Files\Java\jdk1.8.0_351\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext
+java.version=1.8.0_351
+java.vm.info=mixed mode
+awt.toolkit=sun.awt.windows.WToolkit
+user.language=pt
+java.specification.vendor=Oracle Corporation
+sun.java.command=org.codehaus.plexus.classworlds.launcher.Launcher exec:java -Dexec.mainClass=com.xatkit.example.GreetingsBot
+java.home=C:\Program Files\Java\jdk1.8.0_351\jre
+sun.arch.data.model=64
+java.vm.specification.version=1.8
+java.class.path=C:\ProgramData\chocolatey\lib\maven\apache-maven-3.8.1\bin\..\boot\plexus-classworlds-2.6.0.jar
+user.name=Tiago
+file.encoding=Cp1252
+java.specification.version=1.8
+java.awt.printerjob=sun.awt.windows.WPrinterJob
+user.timezone=Europe/London
+user.home=C:\Users\Tiago
+library.jansi.path=C:\ProgramData\chocolatey\lib\maven\apache-maven-3.8.1\bin\..\lib\jansi-native
+os.version=10.0
+sun.management.compiler=HotSpot 64-Bit Tiered Compilers
+java.specification.name=Java Platform API Specification
+java.class.version=52.0
+maven.conf=C:\ProgramData\chocolatey\lib\maven\apache-maven-3.8.1\bin\../conf
+java.library.path=C:\Program Files\Java\jdk1.8.0_351\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Java\jdk1.8.0_351\bin;C:\Python310\Scripts\;C:\Python310\;C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\wbin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\dotnet\;C:\ProgramData\chocolatey\bin;C:\Program Files\Git\cmd;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\ProgramData\chocolatey\lib\maven\apache-maven-3.8.1\bin;C:\Program Files\nodejs\;C:\Gradle\gradle-7.5.1\bin;C:\Gradle\gradle-5.0\bin;C:\Users\Tiago\AppData\Local\Microsoft\WindowsApps;C:\Users\Tiago\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\flutter\bin;C:\tools\dart-sdk\bin;C:\Users\Tiago\AppData\Roaming\Pub\Cache\bin;C:\Gradle\gradle-7.0\bin;C:\Users\Tiago\AppData\Roaming\npm;C:\Users\Tiago\.dotnet\tools;C:\Users\Tiago\AppData\Local\GitHubDesktop\bin;D:\Programs\MiKTeX\miktex\bin\x64\;.
+sun.jnu.encoding=Cp1252
+classworlds.conf=C:\ProgramData\chocolatey\lib\maven\apache-maven-3.8.1\bin\..\bin\m2.conf
+os.name=Windows 10
+user.variant=
+java.vm.specification.vendor=Oracle Corporation
+java.io.tmpdir=C:\Users\Tiago\AppData\Local\Temp\
+line.separator=
+
+java.endorsed.dirs=C:\Program Files\Java\jdk1.8.0_351\jre\lib\endorsed
+os.arch=amd64
+java.awt.graphicsenv=sun.awt.Win32GraphicsEnvironment
+java.runtime.version=1.8.0_351-b10
+java.vm.specification.name=Java Virtual Machine Specification
+user.dir=C:\Users\Tiago\Documents\FCT Matéria\EOM\xatkit\xatkit-examples\GreetingsBots\GreetingsBot
+user.country=PT
+user.script=
+sun.java.launcher=SUN_STANDARD
+sun.os.patch.level=
+java.vm.name=Java HotSpot(TM) 64-Bit Server VM
+file.encoding.pkg=sun.io
+guice.disable.misplaced.annotation.check=true
+path.separator=;
+maven.multiModuleProjectDirectory=C:\Users\Tiago\Documents\FCT Matéria\EOM\xatkit\xatkit-examples\GreetingsBots\GreetingsBot
+java.vm.vendor=Oracle Corporation
+java.vendor.url=http://java.oracle.com/
+exec.mainClass=com.xatkit.example.GreetingsBot
+sun.boot.library.path=C:\Program Files\Java\jdk1.8.0_351\jre\bin
+java.vm.version=25.351-b10
+java.runtime.name=Java(TM) SE Runtime Environment
+2022-11-02 15:40:46 INFO  Starting RegExIntentRecognitionProvider
+2022-11-02 15:40:47 INFO  Session store / pubsub factory used: MemoryStoreFactory (local session store only)
+2022-11-02 15:40:48 INFO  Registered REST handler  at URI /admin (method=GET)
+2022-11-02 15:40:48 INFO  SocketIO server started at port: 5001
+2022-11-02 15:40:48 INFO  Registered REST handler  at URI /admin/css/xatkit.min.css (method=GET)
+2022-11-02 15:40:48 INFO  Registered REST handler  at URI /admin/js/xatkit.min.js (method=GET)
+2022-11-02 15:40:48 INFO  Starting ReactEventProvider
+2022-11-02 15:40:48 INFO  Starting ReactIntentProvider
+2022-11-02 15:40:48 INFO  Registering execution rule events
+2022-11-02 15:40:48 INFO  Starting XatkitServer
+2022-11-02 15:40:48 INFO  Registered REST handler  at URI /status (method=GET)
+2022-11-02 15:40:48 INFO  XatkitServer started, listening on port 5.000
+2022-11-02 15:40:48 INFO  Xatkit bot started
+2022-11-02 15:41:36 ERROR No endpoint registered for GET: /favicon.ico
+2022-11-02 15:42:13 INFO  Detected Intent Greetings (confidence 1) from query text "hello"
+2022-11-02 15:42:17 INFO  Detected Intent Default_Fallback_Intent (confidence 1) from query text "goodbye"
+2022-11-02 15:42:21 INFO  Detected Intent Default_Fallback_Intent (confidence 1) from query text "bye"
+2022-11-02 15:42:23 INFO  Detected Intent Greetings (confidence 1) from query text "hi"
+2022-11-02 15:42:28 INFO  Detected Intent Default_Fallback_Intent (confidence 1) from query text "greetings"
+2022-11-02 15:42:32 INFO  Detected Intent Greetings (confidence 1) from query text "hello"
+2022-11-02 15:42:35 INFO  Detected Intent Greetings (confidence 1) from query text "hello"
+2022-11-02 15:42:36 INFO  Detected Intent Greetings (confidence 1) from query text "hello"
+2022-11-02 15:42:39 INFO  Detected Intent Default_Fallback_Intent (confidence 1) from query text "how are you"
+2022-11-02 15:42:42 INFO  Detected Intent Default_Fallback_Intent (confidence 1) from query text "sorry"
+2022-11-02 15:42:46 INFO  Detected Intent Default_Fallback_Intent (confidence 1) from query text "hola"
+2022-11-02 15:42:50 INFO  Detected Intent Greetings (confidence 1) from query text "hello"
+2022-11-02 15:42:51 INFO  Detected Intent Greetings (confidence 1) from query text "hi"
+2022-11-02 15:43:42 INFO  Stopping SocketIO server
+2022-11-02 15:43:42 ERROR null
+java.net.SocketException: socket closed
+	at java.net.DualStackPlainSocketImpl.accept0(Native Method) ~[?:1.8.0_351]
+	at java.net.DualStackPlainSocketImpl.socketAccept(DualStackPlainSocketImpl.java:127) ~[?:1.8.0_351]
+	at java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:535) ~[?:1.8.0_351]
+	at java.net.PlainSocketImpl.accept(PlainSocketImpl.java:189) ~[?:1.8.0_351]
+	at java.net.ServerSocket.implAccept(ServerSocket.java:545) ~[?:1.8.0_351]
+	at java.net.ServerSocket.accept(ServerSocket.java:513) ~[?:1.8.0_351]
+	at org.apache.http.impl.bootstrap.RequestListener.run(RequestListener.java:74) [httpcore-4.4.10.jar:4.4.10]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_351]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_351]
+	at java.lang.Thread.run(Thread.java:750) [?:1.8.0_351]
+2022-11-02 15:43:47 INFO  SocketIO server stopped
+2022-11-02 17:11:59 INFO  Starting XatkitBot with configuration:
+sun.cpu.isalist=amd64
+sun.desktop=windows
+sun.stdout.encoding=cp850
+sun.io.unicode.encoding=UnicodeLittle
+sun.cpu.endian=little
+java.vendor.url.bug=http://bugreport.sun.com/bugreport/
+file.separator=\
+maven.home=C:\ProgramData\chocolatey\lib\maven\apache-maven-3.8.1\bin\..
+java.specification.maintenance.version=4
+java.vendor=Oracle Corporation
+sun.stderr.encoding=cp850
+sun.boot.class.path=C:\Program Files\Java\jdk1.8.0_351\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_351\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_351\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_351\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_351\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_351\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_351\jre\classes
+java.ext.dirs=C:\Program Files\Java\jdk1.8.0_351\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext
+java.version=1.8.0_351
+java.vm.info=mixed mode
+awt.toolkit=sun.awt.windows.WToolkit
+user.language=pt
+java.specification.vendor=Oracle Corporation
+sun.java.command=org.codehaus.plexus.classworlds.launcher.Launcher exec:java -Dexec.mainClass=com.xatkit.example.GreetingsBot
+java.home=C:\Program Files\Java\jdk1.8.0_351\jre
+sun.arch.data.model=64
+java.vm.specification.version=1.8
+java.class.path=C:\ProgramData\chocolatey\lib\maven\apache-maven-3.8.1\bin\..\boot\plexus-classworlds-2.6.0.jar
+user.name=Tiago
+file.encoding=Cp1252
+java.specification.version=1.8
+java.awt.printerjob=sun.awt.windows.WPrinterJob
+user.timezone=Europe/London
+user.home=C:\Users\Tiago
+library.jansi.path=C:\ProgramData\chocolatey\lib\maven\apache-maven-3.8.1\bin\..\lib\jansi-native
+os.version=10.0
+sun.management.compiler=HotSpot 64-Bit Tiered Compilers
+java.specification.name=Java Platform API Specification
+java.class.version=52.0
+maven.conf=C:\ProgramData\chocolatey\lib\maven\apache-maven-3.8.1\bin\../conf
+java.library.path=C:\Program Files\Java\jdk1.8.0_351\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Java\jdk1.8.0_351\bin;C:\Python310\Scripts\;C:\Python310\;C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\wbin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\dotnet\;C:\ProgramData\chocolatey\bin;C:\Program Files\Git\cmd;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\ProgramData\chocolatey\lib\maven\apache-maven-3.8.1\bin;C:\Program Files\nodejs\;C:\Gradle\gradle-7.5.1\bin;C:\Gradle\gradle-5.0\bin;C:\Users\Tiago\AppData\Local\Microsoft\WindowsApps;C:\Users\Tiago\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\flutter\bin;C:\tools\dart-sdk\bin;C:\Users\Tiago\AppData\Roaming\Pub\Cache\bin;C:\Gradle\gradle-7.0\bin;C:\Users\Tiago\AppData\Roaming\npm;C:\Users\Tiago\.dotnet\tools;C:\Users\Tiago\AppData\Local\GitHubDesktop\bin;D:\Programs\MiKTeX\miktex\bin\x64\;.
+sun.jnu.encoding=Cp1252
+classworlds.conf=C:\ProgramData\chocolatey\lib\maven\apache-maven-3.8.1\bin\..\bin\m2.conf
+os.name=Windows 10
+user.variant=
+java.vm.specification.vendor=Oracle Corporation
+java.io.tmpdir=C:\Users\Tiago\AppData\Local\Temp\
+line.separator=
+
+java.endorsed.dirs=C:\Program Files\Java\jdk1.8.0_351\jre\lib\endorsed
+os.arch=amd64
+java.awt.graphicsenv=sun.awt.Win32GraphicsEnvironment
+java.runtime.version=1.8.0_351-b10
+java.vm.specification.name=Java Virtual Machine Specification
+user.dir=C:\Users\Tiago\Documents\FCT Matéria\EOM\xatkit\xatkit-examples\GreetingsBots\GreetingsBot
+user.country=PT
+user.script=
+sun.java.launcher=SUN_STANDARD
+sun.os.patch.level=
+java.vm.name=Java HotSpot(TM) 64-Bit Server VM
+file.encoding.pkg=sun.io
+guice.disable.misplaced.annotation.check=true
+path.separator=;
+maven.multiModuleProjectDirectory=C:\Users\Tiago\Documents\FCT Matéria\EOM\xatkit\xatkit-examples\GreetingsBots\GreetingsBot
+java.vm.vendor=Oracle Corporation
+java.vendor.url=http://java.oracle.com/
+exec.mainClass=com.xatkit.example.GreetingsBot
+sun.boot.library.path=C:\Program Files\Java\jdk1.8.0_351\jre\bin
+java.vm.version=25.351-b10
+java.runtime.name=Java(TM) SE Runtime Environment
+2022-11-02 17:11:59 INFO  Starting RegExIntentRecognitionProvider
+2022-11-02 17:12:00 INFO  Session store / pubsub factory used: MemoryStoreFactory (local session store only)
+2022-11-02 17:12:01 INFO  SocketIO server started at port: 5001
+2022-11-02 17:12:01 INFO  Registered REST handler  at URI /admin (method=GET)
+2022-11-02 17:12:01 INFO  Registered REST handler  at URI /admin/css/xatkit.min.css (method=GET)
+2022-11-02 17:12:01 INFO  Registered REST handler  at URI /admin/js/xatkit.min.js (method=GET)
+2022-11-02 17:12:01 INFO  Starting ReactEventProvider
+2022-11-02 17:12:01 INFO  Starting ReactIntentProvider
+2022-11-02 17:12:01 INFO  Registering execution rule events
+2022-11-02 17:12:01 INFO  Starting XatkitServer
+2022-11-02 17:12:01 INFO  Registered REST handler  at URI /status (method=GET)
+2022-11-02 17:12:01 INFO  XatkitServer started, listening on port 5.000
+2022-11-02 17:12:01 INFO  Xatkit bot started
+2022-11-02 17:13:25 INFO  Stopping SocketIO server
+2022-11-02 17:13:25 ERROR null
+java.net.SocketException: socket closed
+	at java.net.DualStackPlainSocketImpl.accept0(Native Method) ~[?:1.8.0_351]
+	at java.net.DualStackPlainSocketImpl.socketAccept(DualStackPlainSocketImpl.java:127) ~[?:1.8.0_351]
+	at java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:535) ~[?:1.8.0_351]
+	at java.net.PlainSocketImpl.accept(PlainSocketImpl.java:189) ~[?:1.8.0_351]
+	at java.net.ServerSocket.implAccept(ServerSocket.java:545) ~[?:1.8.0_351]
+	at java.net.ServerSocket.accept(ServerSocket.java:513) ~[?:1.8.0_351]
+	at org.apache.http.impl.bootstrap.RequestListener.run(RequestListener.java:74) [httpcore-4.4.10.jar:4.4.10]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_351]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_351]
+	at java.lang.Thread.run(Thread.java:750) [?:1.8.0_351]
+2022-11-02 17:13:29 INFO  SocketIO server stopped

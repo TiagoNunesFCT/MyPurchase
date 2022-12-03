@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="myPurchase" nsURI="http://www.example.org/myPurchase" nsPrefix="myPurchase">
+  <eClassifiers xsi:type="ecore:EClass" name="Purchasebot">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="action" lowerBound="1"
+        upperBound="-1" eType="#//Action" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="greeting" lowerBound="1"
+        upperBound="-1" eType="#//Greeting" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Greeting">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Action">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actionsAvailable" upperBound="-1"
+        eType="#//Action"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="step" upperBound="-1" eType="#//Step"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Items">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Price" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PaymentMethod">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="deliverylocation" lowerBound="1"
+        upperBound="-1" eType="#//DeliveryLocation"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DeliveryLocation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Home" eSuperTypes="#//DeliveryLocation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Store" eSuperTypes="#//DeliveryLocation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ProductAction" eSuperTypes="#//Action">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="selectitmemsstep" lowerBound="1"
+        upperBound="-1" eType="#//SelectItmemsStep" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="selectpaymentmethodstep"
+        lowerBound="1" upperBound="-1" eType="#//SelectPaymentMethodStep" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="selectdeliverylocationstep"
+        lowerBound="1" upperBound="-1" eType="#//SelectDeliveryLocationStep" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TalkAction" eSuperTypes="#//Action">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="talkstep" upperBound="-1"
+        eType="#//TalkStep" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Step">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nextStep" eType="#//Step"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="NumberOfRepeats" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TalkStep" eSuperTypes="#//Step"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SelectItmemsStep" eSuperTypes="#//Step">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
+        eType="#//Items" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SelectPaymentMethodStep" eSuperTypes="#//Step">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="paymentmethod" upperBound="-1"
+        eType="#//PaymentMethod" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SelectDeliveryLocationStep" eSuperTypes="#//Step">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="deliverylocation" upperBound="-1"
+        eType="#//DeliveryLocation" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>
