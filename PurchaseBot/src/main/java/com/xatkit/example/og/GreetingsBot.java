@@ -38,32 +38,16 @@ public class GreetingsBot {
          * interfaces that are not useful for bot designers. If you don't want to use val you can use our own
          * interface IntentVar instead.
          */
-        val greetings = intent("Greetings");
-		
+        val greetings = intent("Greetings")
+                .trainingSentence("Hi")
+                .trainingSentence("Hello")
+                .trainingSentence("Good morning")
+                .trainingSentence("Good afternoon");
+
         val howAreYou = intent("HowAreYou")
                 .trainingSentence("How are you?")
                 .trainingSentence("What's up?")
                 .trainingSentence("How do you feel?");
-                
-		val WeatherIntent = intent ("Weather")
-        		.trainingSentence("Weather");
-        	
-        	        		val BuyItemsIntent = intent ("BuyItems")
-        		.trainingSentence("Buy");
-        		val BuyPaymentIntent = intent ("BuyPayment")
-        		.trainingSentence("BuyPayment");
-        		        		val BuyDeliveryIntent = intent ("BuyDelivery")
-        		.trainingSentence("BuyDelivery");
-        	        		val SellItemsIntent = intent ("SellItems")
-        		.trainingSentence("Sell");
-        		val SellPaymentIntent = intent ("SellPayment")
-        		.trainingSentence("SellPayment");
-        		        		val SellDeliveryIntent = intent ("SellDelivery")
-        		.trainingSentence("SellDelivery");
-     
-  val itemIntent = intent("Items")		.trainingSentence("Item1");  val itemIntent = intent("Items")		.trainingSentence("Item2");       
-
-                
 
         /*
          * Instantiate the platform we will use in the bot definition.
@@ -104,13 +88,6 @@ public class GreetingsBot {
         val awaitingInput = state("AwaitingInput");
         val handleWelcome = state("HandleWelcome");
         val handleWhatsUp = state("HandleWhatsUp");
-		val handleBuy = state("HandleBuy");
-        val awaitingInputBuy = state("AwaitingInputBuy");
-		val handleWeather = state("HandleWeather");
-        val awaitingInputWeather = state("AwaitingInputWeather");
-		val handleSell = state("HandleSell");
-        val awaitingInputSell = state("AwaitingInputSell");
-        
 
         /*
          * Specify the content of the bot states (i.e. the behavior of the bot).
@@ -152,38 +129,7 @@ public class GreetingsBot {
                  * </pre>
                  */
                 .when(intentIs(greetings)).moveTo(handleWelcome)
-                .when(intentIs(howAreYou)).moveTo(handleWhatsUp)
-		.when(intentIs(BuyIntent)).moveTo(handleBuy)
-		.when(intentIs(WeatherIntent)).moveTo(handleWeather)
-		.when(intentIs(SellIntent)).moveTo(handleSell)
-                ;
-                
-           awaitingInputBuy	
-				.body(context -> {
-				reactPlatform.reply(context, "Please select the item you wish to Buy."); 
-				reactPlatform.reply(context, "Here are all the available items:");
-				reactPlatform.reply(context,"Item1 Price:0");				})
-				.when(intentIs(Item)).moveTo()
-				
-				
-
-				/*				This is a paymentMethodSelectionStep0
-				This is a deliveryLocationSelectionStep0
-*/
-				;
-           awaitingInputSell	
-				.body(context -> {
-				reactPlatform.reply(context, "Please select the item you wish to Sell."); 
-				reactPlatform.reply(context, "Here are all the available items:");
-				reactPlatform.reply(context,"Item2 Price:0");				})
-				.when(intentIs(Item)).moveTo()
-				
-				
-
-				/**/
-				;
-                
-                
+                .when(intentIs(howAreYou)).moveTo(handleWhatsUp);
 
         handleWelcome
                 .body(context -> reactPlatform.reply(context, "Hi, nice to meet you!"))
@@ -198,17 +144,6 @@ public class GreetingsBot {
                 .body(context -> reactPlatform.reply(context, "I am fine and you?"))
                 .next()
                 .moveTo(awaitingInput);
-                
-		handleBuy.body(context -> reactPlatform.reply(context,"What do you wish to Buy?"))
-                .next()
-                .moveTo(awaitingInputBuy);
-		handleWeather.body(context -> reactPlatform.reply(context,"The Weather is Fine!"))
-                .next()
-                .moveTo(awaitingInputWeather);
-		handleSell.body(context -> reactPlatform.reply(context,"What to Sell?"))
-                .next()
-                .moveTo(awaitingInputSell);
-
 
         /*
          * The state that is executed if the engine doesn't find any navigable transition in a state and the state

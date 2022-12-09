@@ -44,6 +44,24 @@ public class GreetingsBot {
                 .trainingSentence("How are you?")
                 .trainingSentence("What's up?")
                 .trainingSentence("How do you feel?");
+                
+        [%for (s in TalkAction.all){ %]		val [%=s.Name%]Intent = intent ("[%=s.Name%]")
+        		.trainingSentence("[%=s.Name%]");
+        	[%}%]
+        	
+        	        [%for (a in ProductAction.all){ %]
+        	        		val [%=a.Name%]ItemsIntent = intent ("[%=a.Name%]Items")
+        		.trainingSentence("[%=a.Name%]");
+        		val [%=a.Name%]PaymentIntent = intent ("[%=a.Name%]Payment")
+        		.trainingSentence("[%=a.Name%]Payment");
+        		        		val [%=a.Name%]DeliveryIntent = intent ("[%=a.Name%]Delivery")
+        		.trainingSentence("[%=a.Name%]Delivery");
+        	[%}%]
+     
+       [%for (a in ProductAction.all){ %]  val itemIntent = intent("Items")[%for (s in a.selectitmemsstep){ %][%for (i in s.items){ %]		.trainingSentence("[%=i.Name%]");[%}%][%}%][%}%]
+       
+
+                
 
         /*
          * Instantiate the platform we will use in the bot definition.
@@ -84,6 +102,10 @@ public class GreetingsBot {
         val awaitingInput = state("AwaitingInput");
         val handleWelcome = state("HandleWelcome");
         val handleWhatsUp = state("HandleWhatsUp");
+        [%for (s in Action.all){ %]		val handle[%=s.Name%] = state("Handle[%=s.Name%]");
+        val awaitingInput[%=s.Name%] = state("AwaitingInput[%=s.Name%]");
+        [%}%]
+        
 
         /*
          * Specify the content of the bot states (i.e. the behavior of the bot).
@@ -125,7 +147,32 @@ public class GreetingsBot {
                  * </pre>
                  */
                 .when(intentIs(greetings)).moveTo(handleWelcome)
-                .when(intentIs(howAreYou)).moveTo(handleWhatsUp);
+                .when(intentIs(howAreYou)).moveTo(handleWhatsUp)
+                [%for (s in Action.all){ %]		.when(intentIs([%=s.Name%]Intent)).moveTo(handle[%=s.Name%])
+        [%}%]
+                ;
+                
+           [%for (a in ProductAction.all){ %]
+           awaitingInput[%=a.Name%]	
+				.body(context -> {
+				reactPlatform.reply(context, "Please select the item you wish to [%=a.Name%]."); 
+				[%for (s in a.selectitmemsstep){ %]				reactPlatform.reply(context, "Here are all the available items:");
+				[%for (i in s.items){ %]				reactPlatform.reply(context,"[%=i.Name%] Price:[%=i.Price%]");[%}%][%}%]
+				})
+				.when(intentIs(Item)).moveTo()
+				
+				
+
+				/*[%for (s in a.selectpaymentmethodstep){ %]
+				This is a paymentMethodSelectionStep[%=s.NumberOfRepeats%]
+				[%}%]
+				[%for (s in a.selectdeliverylocationstep){ %]
+				This is a deliveryLocationSelectionStep[%=s.NumberOfRepeats%]
+				[%}%]*/
+				;
+        	[%}%]
+                
+                
 
         handleWelcome
                 .body(context -> reactPlatform.reply(context, "Hi, nice to meet you!"))
@@ -140,6 +187,12 @@ public class GreetingsBot {
                 .body(context -> reactPlatform.reply(context, "I am fine and you?"))
                 .next()
                 .moveTo(awaitingInput);
+                
+        [%for (s in Action.all){ %]		handle[%=s.Name%].body(context -> reactPlatform.reply(context,"[%=s.Description%]"))
+                .next()
+                .moveTo(awaitingInput[%=s.Name%]);
+        [%}%]
+
 
         /*
          * The state that is executed if the engine doesn't find any navigable transition in a state and the state

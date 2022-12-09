@@ -20,6 +20,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute myPurchase.ecore#//Action/Name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference myPurchase.ecore#//Action/actionsAvailable"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference myPurchase.ecore#//Action/step"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute myPurchase.ecore#//Action/Description"/>
     </genClasses>
     <genClasses ecoreClass="myPurchase.ecore#//Items">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute myPurchase.ecore#//Items/Name"/>

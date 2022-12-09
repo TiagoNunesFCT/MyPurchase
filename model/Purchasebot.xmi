@@ -7,30 +7,34 @@
     xsi:schemaLocation="http://www.example.org/myPurchase myPurchase.ecore">
   <action xsi:type="myPurchase:ProductAction"
       Name="Buy"
-      actionsAvailable="//@action.0">
-    <selectitmemsstep>
+      Description="What do you wish to Buy?">
+    <selectitmemsstep
+        nextStep="//@action.0/@selectpaymentmethodstep.0">
       <items
-          Name="Item 1"
-          Price="10"/>
+          Name="Item1"/>
     </selectitmemsstep>
-    <selectpaymentmethodstep>
+    <selectpaymentmethodstep
+        nextStep="//@action.0/@selectdeliverylocationstep.0">
       <paymentmethod
-          Name="Debit"
-          deliverylocation="//@action.0/@selectdeliverylocationstep.0/@deliverylocation.0 //@action.0/@selectdeliverylocationstep.0/@deliverylocation.1"/>
+          Name="Credit"/>
     </selectpaymentmethodstep>
     <selectdeliverylocationstep>
       <deliverylocation
-          xsi:type="myPurchase:Home"
-          Name="My Home"/>
-      <deliverylocation
-          xsi:type="myPurchase:Store"
-          Name="Store 1"/>
+          Name="Home"/>
     </selectdeliverylocationstep>
   </action>
   <action xsi:type="myPurchase:TalkAction"
-      Name="Weather">
+      Name="Weather"
+      Description="The Weather is Fine!">
     <talkstep/>
   </action>
-  <greeting
-      Name="Hello"/>
+  <action xsi:type="myPurchase:ProductAction"
+      Name="Sell"
+      Description="What to Sell?">
+    <selectitmemsstep
+        NumberOfRepeats="1">
+      <items
+          Name="Item2"/>
+    </selectitmemsstep>
+  </action>
 </myPurchase:Purchasebot>
