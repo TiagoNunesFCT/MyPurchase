@@ -48,20 +48,19 @@ public class GreetingsBot {
 		val WeatherIntent = intent ("Weather")
         		.trainingSentence("Weather");
         	
-        	        		val BuyItemsIntent = intent ("BuyItems")
+        	        val BuyIntent = intent ("Buy")
         		.trainingSentence("Buy");
-        		val BuyPaymentIntent = intent ("BuyPayment")
-        		.trainingSentence("BuyPayment");
-        		        		val BuyDeliveryIntent = intent ("BuyDelivery")
-        		.trainingSentence("BuyDelivery");
-        	        		val SellItemsIntent = intent ("SellItems")
+        	        		val BuyItemsIntent = intent ("BuyItems")
+		.trainingSentence("Item1");        		val BuyPaymentIntent = intent ("BuyPayment")
+		.trainingSentence("Credit");        		        		val BuyDeliveryIntent = intent ("BuyDelivery")
+		.trainingSentence("Home");        	        val SellIntent = intent ("Sell")
         		.trainingSentence("Sell");
-        		val SellPaymentIntent = intent ("SellPayment")
-        		.trainingSentence("SellPayment");
-        		        		val SellDeliveryIntent = intent ("SellDelivery")
-        		.trainingSentence("SellDelivery");
-     
-  val itemIntent = intent("Items")		.trainingSentence("Item1");  val itemIntent = intent("Items")		.trainingSentence("Item2");       
+        	        		val SellItemsIntent = intent ("SellItems")
+		.trainingSentence("Item2");        		val SellPaymentIntent = intent ("SellPayment")
+		.trainingSentence("Debit");        		        		val SellDeliveryIntent = intent ("SellDelivery")
+		.trainingSentence("Porto Store");     
+       
+       
 
                 
 
@@ -180,7 +179,9 @@ public class GreetingsBot {
 				
 				
 
-				/**/
+				/*				This is a paymentMethodSelectionStep0
+				This is a deliveryLocationSelectionStep0
+*/
 				;
                 
                 

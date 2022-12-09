@@ -16,10 +16,12 @@
     <selectpaymentmethodstep
         nextStep="//@action.0/@selectdeliverylocationstep.0">
       <paymentmethod
-          Name="Credit"/>
+          Name="Credit"
+          deliverylocation="//@action.0/@selectdeliverylocationstep.0/@deliverylocation.0"/>
     </selectpaymentmethodstep>
     <selectdeliverylocationstep>
       <deliverylocation
+          xsi:type="myPurchase:Home"
           Name="Home"/>
     </selectdeliverylocationstep>
   </action>
@@ -32,9 +34,20 @@
       Name="Sell"
       Description="What to Sell?">
     <selectitmemsstep
-        NumberOfRepeats="1">
+        nextStep="//@action.2/@selectpaymentmethodstep.0">
       <items
           Name="Item2"/>
     </selectitmemsstep>
+    <selectpaymentmethodstep
+        nextStep="//@action.2/@selectdeliverylocationstep.0">
+      <paymentmethod
+          Name="Debit"
+          deliverylocation="//@action.2/@selectdeliverylocationstep.0/@deliverylocation.0"/>
+    </selectpaymentmethodstep>
+    <selectdeliverylocationstep>
+      <deliverylocation
+          xsi:type="myPurchase:Store"
+          Name="Porto Store"/>
+    </selectdeliverylocationstep>
   </action>
 </myPurchase:Purchasebot>

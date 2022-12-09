@@ -50,15 +50,17 @@ public class GreetingsBot {
         	[%}%]
         	
         	        [%for (a in ProductAction.all){ %]
-        	        		val [%=a.Name%]ItemsIntent = intent ("[%=a.Name%]Items")
+        	        val [%=a.Name%]Intent = intent ("[%=a.Name%]")
         		.trainingSentence("[%=a.Name%]");
+        	        		val [%=a.Name%]ItemsIntent = intent ("[%=a.Name%]Items")
+        	        		[%for (s in a.selectitmemsstep){ %][%for (i in s.items){ %]		.trainingSentence("[%=i.Name%]");[%}%][%}%]
         		val [%=a.Name%]PaymentIntent = intent ("[%=a.Name%]Payment")
-        		.trainingSentence("[%=a.Name%]Payment");
+        		[%for (s in a.selectpaymentmethodstep){ %][%for (p in s.paymentmethod){ %]		.trainingSentence("[%=p.Name%]");[%}%][%}%]
         		        		val [%=a.Name%]DeliveryIntent = intent ("[%=a.Name%]Delivery")
-        		.trainingSentence("[%=a.Name%]Delivery");
+        		[%for (s in a.selectpaymentmethodstep){ %][%for (p in s.paymentmethod){ %][%for (d in p.deliverylocation){ %]		.trainingSentence("[%=d.Name%]");[%}%][%}%][%}%]
         	[%}%]
      
-       [%for (a in ProductAction.all){ %]  val itemIntent = intent("Items")[%for (s in a.selectitmemsstep){ %][%for (i in s.items){ %]		.trainingSentence("[%=i.Name%]");[%}%][%}%][%}%]
+       
        
 
                 
