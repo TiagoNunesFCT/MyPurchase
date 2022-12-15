@@ -11,18 +11,31 @@
     <selectitmemsstep
         nextStep="//@action.0/@selectpaymentmethodstep.0">
       <items
-          Name="Item1"/>
+          Name="Banana"
+          Price="10"/>
+      <items
+          Name="Computer"
+          Price="5"/>
+      <items
+          Name="iPhone 15"
+          Price="10000000"/>
     </selectitmemsstep>
     <selectpaymentmethodstep
         nextStep="//@action.0/@selectdeliverylocationstep.0">
       <paymentmethod
           Name="Credit"
           deliverylocation="//@action.0/@selectdeliverylocationstep.0/@deliverylocation.0"/>
+      <paymentmethod
+          Name="Debit"
+          deliverylocation="//@action.0/@selectdeliverylocationstep.0/@deliverylocation.1"/>
     </selectpaymentmethodstep>
     <selectdeliverylocationstep>
       <deliverylocation
           xsi:type="myPurchase:Home"
           Name="Home"/>
+      <deliverylocation
+          xsi:type="myPurchase:Store"
+          Name="Lisbon Store"/>
     </selectdeliverylocationstep>
   </action>
   <action xsi:type="myPurchase:TalkAction"
@@ -36,18 +49,36 @@
     <selectitmemsstep
         nextStep="//@action.2/@selectpaymentmethodstep.0">
       <items
-          Name="Item2"/>
+          Name="Fish Tank"
+          Price="50"/>
+      <items
+          Name="Fish"
+          Price="2"/>
     </selectitmemsstep>
     <selectpaymentmethodstep
         nextStep="//@action.2/@selectdeliverylocationstep.0">
       <paymentmethod
           Name="Debit"
-          deliverylocation="//@action.2/@selectdeliverylocationstep.0/@deliverylocation.0"/>
+          deliverylocation="//@action.2/@selectdeliverylocationstep.0/@deliverylocation.0 //@action.2/@selectdeliverylocationstep.0/@deliverylocation.1"/>
+      <paymentmethod
+          Name="Credit"
+          deliverylocation="//@action.2/@selectdeliverylocationstep.0/@deliverylocation.0 //@action.2/@selectdeliverylocationstep.0/@deliverylocation.1"/>
     </selectpaymentmethodstep>
     <selectdeliverylocationstep>
       <deliverylocation
           xsi:type="myPurchase:Store"
           Name="Porto Store"/>
+      <deliverylocation
+          xsi:type="myPurchase:Home"
+          Name="Home"/>
     </selectdeliverylocationstep>
   </action>
+  <greeting
+      Name="Hello!"/>
+  <greeting
+      Name="Hi!"/>
+  <greeting
+      Name="Hello"/>
+  <greeting
+      Name="Hi"/>
 </myPurchase:Purchasebot>

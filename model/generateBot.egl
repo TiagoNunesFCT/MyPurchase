@@ -28,6 +28,10 @@ public class GreetingsBot {
      */
     public static void main(String[] args) {
 
+
+		String currentItem = "";
+		int currentItemPrice = 0;
+
         /*
          * Define the intents our bot will react to.
          * <p>
@@ -53,11 +57,12 @@ public class GreetingsBot {
         	        val [%=a.Name%]Intent = intent ("[%=a.Name%]")
         		.trainingSentence("[%=a.Name%]");
         	        		val [%=a.Name%]ItemsIntent = intent ("[%=a.Name%]Items")
-        	        		[%for (s in a.selectitmemsstep){ %][%for (i in s.items){ %]		.trainingSentence("[%=i.Name%]");[%}%][%}%]
+        	        		[%for (s in a.selectitmemsstep){ %][%for (i in s.items){ %]		.trainingSentence("[%=i.Name%]")[%}%][%}%];
         		val [%=a.Name%]PaymentIntent = intent ("[%=a.Name%]Payment")
-        		[%for (s in a.selectpaymentmethodstep){ %][%for (p in s.paymentmethod){ %]		.trainingSentence("[%=p.Name%]");[%}%][%}%]
-        		        		val [%=a.Name%]DeliveryIntent = intent ("[%=a.Name%]Delivery")
-        		[%for (s in a.selectpaymentmethodstep){ %][%for (p in s.paymentmethod){ %][%for (d in p.deliverylocation){ %]		.trainingSentence("[%=d.Name%]");[%}%][%}%][%}%]
+        		[%for (s in a.selectpaymentmethodstep){ %][%for (p in s.paymentmethod){ %]		.trainingSentence("[%=p.Name%]")[%}%][%}%];
+        		        		
+        		[%for (s in a.selectpaymentmethodstep){ %]
+        		[%for (p in s.paymentmethod){ %]val [%=a.Name%][%=p.Name%]DeliveryIntent = intent ("[%=a.Name%][%=p.Name%]Delivery")[%for (d in p.deliverylocation){ %]		.trainingSentence("[%=d.Name%]")[%}%];[%}%][%}%]
         	[%}%]
      
        
@@ -110,9 +115,7 @@ public class GreetingsBot {
         [%for (a in ProductAction.all){ %]		val handle[%=a.Name%] = state("Handle[%=a.Name%]");
         val awaitingInput[%=a.Name%] = state("AwaitingInput[%=a.Name%]");
         [%for (s in a.selectitmemsstep){ %]		val awaitingInput[%=a.Name%]SelectItems = state("AwaitingInput[%=a.Name%]SelectItems");[%}%]
-        
-        [%for (s in a.selectpaymentmethodstep){ %]		val awaitingInput[%=a.Name%]SelectPayment = state("AwaitingInput[%=a.Name%]SelectPayment");[%}%]
-        
+        [%for (s in a.selectpaymentmethodstep){ %]		val awaitingInput[%=a.Name%]SelectPayment = state("AwaitingInput[%=a.Name%]SelectPayment");[%}%]       
         [%for (s in a.selectdeliverylocationstep){ %]		val awaitingInput[%=a.Name%]SelectLocation = state("AwaitingInput[%=a.Name%]SelectLocation");
         [%}%]
         [%}%]
@@ -161,20 +164,57 @@ public class GreetingsBot {
                 .when(intentIs(greetings)).moveTo(handleWelcome)
                 .when(intentIs(howAreYou)).moveTo(handleWhatsUp)
                 [%for (s in Action.all){ %]		.when(intentIs([%=s.Name%]Intent)).moveTo(handle[%=s.Name%])
-        [%}%]
+        		[%}%]
                 ;
+            
+           [%for (a in ProductAction.all){ %] 
+
+           [%}%]
+            
+            
+            
                 
            [%for (a in ProductAction.all){ %]
            awaitingInput[%=a.Name%]	
 				.body(context -> {
 				reactPlatform.reply(context, "Please select the item you wish to [%=a.Name%]."); 
+				
 				[%for (s in a.selectitmemsstep){ %]				reactPlatform.reply(context, "Here are all the available items:");
 				[%for (i in s.items){ %]				reactPlatform.reply(context,"[%=i.Name%] Price:[%=i.Price%]");[%}%][%}%]
-				})
-				.when(intentIs(Item)).moveTo()
+				}).next()
+				.when(intentIs([%=a.Name%]ItemsIntent)).moveTo(awaitingInput[%=a.Name%]SelectItems)
+				;
 				
 				
-
+				
+				[%for (s in a.selectitmemsstep){ %]
+				awaitingInput[%=a.Name%]SelectItems	
+				.body(context -> {
+				reactPlatform.reply(context, "Please select the payment method you wish to use.");
+				[%for (s in a.selectpaymentmethodstep){ %]				reactPlatform.reply(context, "Here are all the available payment methods:");
+				[%for (p in s.paymentmethod){ %]				reactPlatform.reply(context,"[%=p.Name%]");[%}%][%}%]
+				[%}%]
+				}).next().when(intentIs([%=a.Name%]PaymentIntent)).moveTo(awaitingInput[%=a.Name%]SelectPayment);
+				
+				
+				[%for (s in a.selectpaymentmethodstep){ %]
+				[%for (p in s.paymentmethod){ %]
+				awaitingInput[%=a.Name%]SelectPayment	
+				.body(context -> {
+				reactPlatform.reply(context, "Please select the delivery location you wish to use for the selected items.");
+								reactPlatform.reply(context, "Here are all the available delivery locations:");
+				[%for (l in p.deliverylocation){ %]				reactPlatform.reply(context,"[%=l.Name%]");[%}%]
+				}).next().when(intentIs([%=a.Name%][%=p.Name%]DeliveryIntent)).moveTo(awaitingInput[%=a.Name%]SelectLocation);
+				[%}%][%}%]
+				
+				[%for (s in a.selectdeliverylocationstep){ %]
+				awaitingInput[%=a.Name%]SelectLocation
+				.body(context -> {
+				reactPlatform.reply(context, "Operation completed Successfully!");
+				}).next().moveTo(awaitingInput);
+				[%}%]
+				
+				
 				/*[%for (s in a.selectpaymentmethodstep){ %]
 				This is a paymentMethodSelectionStep[%=s.NumberOfRepeats%]
 				[%}%]
