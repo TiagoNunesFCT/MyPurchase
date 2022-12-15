@@ -103,12 +103,19 @@ public class GreetingsBot {
         val awaitingInput = state("AwaitingInput");
         val handleWelcome = state("HandleWelcome");
         val handleWhatsUp = state("HandleWhatsUp");
-		val handleBuy = state("HandleBuy");
-        val awaitingInputBuy = state("AwaitingInputBuy");
 		val handleWeather = state("HandleWeather");
         val awaitingInputWeather = state("AwaitingInputWeather");
+		val handleBuy = state("HandleBuy");
+        val awaitingInputBuy = state("AwaitingInputBuy");
+		val awaitingInputBuySelectItems = state("AwaitingInputBuySelectItems");        
+		val awaitingInputBuySelectPayment = state("AwaitingInputBuySelectPayment");        
+		val awaitingInputBuySelectLocation = state("AwaitingInputBuySelectLocation");
 		val handleSell = state("HandleSell");
         val awaitingInputSell = state("AwaitingInputSell");
+		val awaitingInputSellSelectItems = state("AwaitingInputSellSelectItems");        
+		val awaitingInputSellSelectPayment = state("AwaitingInputSellSelectPayment");        
+		val awaitingInputSellSelectLocation = state("AwaitingInputSellSelectLocation");
+        
         
 
         /*

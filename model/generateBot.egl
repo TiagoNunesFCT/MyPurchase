@@ -104,9 +104,19 @@ public class GreetingsBot {
         val awaitingInput = state("AwaitingInput");
         val handleWelcome = state("HandleWelcome");
         val handleWhatsUp = state("HandleWhatsUp");
-        [%for (s in Action.all){ %]		val handle[%=s.Name%] = state("Handle[%=s.Name%]");
+        [%for (s in TalkAction.all){ %]		val handle[%=s.Name%] = state("Handle[%=s.Name%]");
         val awaitingInput[%=s.Name%] = state("AwaitingInput[%=s.Name%]");
         [%}%]
+        [%for (a in ProductAction.all){ %]		val handle[%=a.Name%] = state("Handle[%=a.Name%]");
+        val awaitingInput[%=a.Name%] = state("AwaitingInput[%=a.Name%]");
+        [%for (s in a.selectitmemsstep){ %]		val awaitingInput[%=a.Name%]SelectItems = state("AwaitingInput[%=a.Name%]SelectItems");[%}%]
+        
+        [%for (s in a.selectpaymentmethodstep){ %]		val awaitingInput[%=a.Name%]SelectPayment = state("AwaitingInput[%=a.Name%]SelectPayment");[%}%]
+        
+        [%for (s in a.selectdeliverylocationstep){ %]		val awaitingInput[%=a.Name%]SelectLocation = state("AwaitingInput[%=a.Name%]SelectLocation");
+        [%}%]
+        [%}%]
+        
         
 
         /*
