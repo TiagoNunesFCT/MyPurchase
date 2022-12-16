@@ -167,8 +167,8 @@ public class GreetingsBot {
         		[%}%]
                 ;
             
-           [%for (a in ProductAction.all){ %] 
-
+           [%for (a in TalkAction.all){ %] 
+				awaitingInput[%=a.Name%]	.next().moveTo(awaitingInput);
            [%}%]
             
             
