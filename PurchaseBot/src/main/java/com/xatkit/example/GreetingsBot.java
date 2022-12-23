@@ -23,14 +23,26 @@ import static com.xatkit.dsl.DSL.state;
  */
 public class GreetingsBot {
 
+	static String currentItem = "";
+	static String currentPayment = "";
+	static String currentLocation = "";
+	int currentItemPrice = 0;
+
+	static void setItem(String item) {
+		currentItem = item;
+	}
+	static void setPayment(String payment) {
+		currentPayment = payment;
+	}
+	static void setLocation(String location) {
+		currentLocation = location;
+	}
+
     /*
      * Your bot is a plain Java application: you need to define a main method to make the created jar executable.
      */
     public static void main(String[] args) {
 
-
-		String currentItem = "";
-		int currentItemPrice = 0;
 
         /*
          * Define the intents our bot will react to.
@@ -189,6 +201,9 @@ val SellDebitDeliveryIntent = intent ("SellDebitDelivery")		.trainingSentence("P
 				
 				awaitingInputBuySelectItems	
 				.body(context -> {
+				String item = (String) context.getIntent().getMatchedInput();
+				setItem(item);
+				reactPlatform.reply(context, "You selected " + item);
 				reactPlatform.reply(context, "Please select the payment method you wish to use.");
 				reactPlatform.reply(context, "Here are all the available payment methods:");
 				reactPlatform.reply(context,"Credit");				reactPlatform.reply(context,"Debit");				}).next().when(intentIs(BuyPaymentIntent)).moveTo(awaitingInputBuySelectPayment);
@@ -196,18 +211,27 @@ val SellDebitDeliveryIntent = intent ("SellDebitDelivery")		.trainingSentence("P
 				
 				awaitingInputBuySelectPayment	
 				.body(context -> {
+				String payment = (String) context.getIntent().getMatchedInput();
+				setPayment(payment);
+				reactPlatform.reply(context, "You selected " + payment);
 				reactPlatform.reply(context, "Please select the delivery location you wish to use for the selected items.");
 								reactPlatform.reply(context, "Here are all the available delivery locations:");
 				reactPlatform.reply(context,"Home");				}).next().when(intentIs(BuyCreditDeliveryIntent)).moveTo(awaitingInputBuySelectLocation);
 				awaitingInputBuySelectPayment	
 				.body(context -> {
+				String payment = (String) context.getIntent().getMatchedInput();
+				setPayment(payment);
+				reactPlatform.reply(context, "You selected " + payment);
 				reactPlatform.reply(context, "Please select the delivery location you wish to use for the selected items.");
 								reactPlatform.reply(context, "Here are all the available delivery locations:");
 				reactPlatform.reply(context,"Lisbon Store");				}).next().when(intentIs(BuyDebitDeliveryIntent)).moveTo(awaitingInputBuySelectLocation);
 				
 				awaitingInputBuySelectLocation
 				.body(context -> {
+				String location = (String) context.getIntent().getMatchedInput();
+				setLocation(location);
 				reactPlatform.reply(context, "Operation completed Successfully!");
+				reactPlatform.reply(context, "Buy " + currentItem + " " + currentPayment + " " + currentLocation);
 				}).next().moveTo(awaitingInput);
 				
 				
@@ -228,6 +252,9 @@ val SellDebitDeliveryIntent = intent ("SellDebitDelivery")		.trainingSentence("P
 				
 				awaitingInputSellSelectItems	
 				.body(context -> {
+				String item = (String) context.getIntent().getMatchedInput();
+				setItem(item);
+				reactPlatform.reply(context, "You selected " + item);
 				reactPlatform.reply(context, "Please select the payment method you wish to use.");
 				reactPlatform.reply(context, "Here are all the available payment methods:");
 				reactPlatform.reply(context,"Debit");				reactPlatform.reply(context,"Credit");				}).next().when(intentIs(SellPaymentIntent)).moveTo(awaitingInputSellSelectPayment);
@@ -235,18 +262,27 @@ val SellDebitDeliveryIntent = intent ("SellDebitDelivery")		.trainingSentence("P
 				
 				awaitingInputSellSelectPayment	
 				.body(context -> {
+				String payment = (String) context.getIntent().getMatchedInput();
+				setPayment(payment);
+				reactPlatform.reply(context, "You selected " + payment);
 				reactPlatform.reply(context, "Please select the delivery location you wish to use for the selected items.");
 								reactPlatform.reply(context, "Here are all the available delivery locations:");
 				reactPlatform.reply(context,"Porto Store");				reactPlatform.reply(context,"Home");				}).next().when(intentIs(SellDebitDeliveryIntent)).moveTo(awaitingInputSellSelectLocation);
 				awaitingInputSellSelectPayment	
 				.body(context -> {
+				String payment = (String) context.getIntent().getMatchedInput();
+				setPayment(payment);
+				reactPlatform.reply(context, "You selected " + payment);
 				reactPlatform.reply(context, "Please select the delivery location you wish to use for the selected items.");
 								reactPlatform.reply(context, "Here are all the available delivery locations:");
 				reactPlatform.reply(context,"Porto Store");				reactPlatform.reply(context,"Home");				}).next().when(intentIs(SellCreditDeliveryIntent)).moveTo(awaitingInputSellSelectLocation);
 				
 				awaitingInputSellSelectLocation
 				.body(context -> {
+				String location = (String) context.getIntent().getMatchedInput();
+				setLocation(location);
 				reactPlatform.reply(context, "Operation completed Successfully!");
+				reactPlatform.reply(context, "Sell " + currentItem + " " + currentPayment + " " + currentLocation);
 				}).next().moveTo(awaitingInput);
 				
 				

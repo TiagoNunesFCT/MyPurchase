@@ -23,14 +23,26 @@ import static com.xatkit.dsl.DSL.state;
  */
 public class GreetingsBot {
 
+	static String currentItem = "";
+	static String currentPayment = "";
+	static String currentLocation = "";
+	int currentItemPrice = 0;
+
+	static void setItem(String item) {
+		currentItem = item;
+	}
+	static void setPayment(String payment) {
+		currentPayment = payment;
+	}
+	static void setLocation(String location) {
+		currentLocation = location;
+	}
+
     /*
      * Your bot is a plain Java application: you need to define a main method to make the created jar executable.
      */
     public static void main(String[] args) {
 
-
-		String currentItem = "";
-		int currentItemPrice = 0;
 
         /*
          * Define the intents our bot will react to.
@@ -190,6 +202,9 @@ public class GreetingsBot {
 				[%for (s in a.selectitmemsstep){ %]
 				awaitingInput[%=a.Name%]SelectItems	
 				.body(context -> {
+				String item = (String) context.getIntent().getMatchedInput();
+				setItem(item);
+				reactPlatform.reply(context, "You selected " + item);
 				reactPlatform.reply(context, "Please select the payment method you wish to use.");
 				[%for (s in a.selectpaymentmethodstep){ %]				reactPlatform.reply(context, "Here are all the available payment methods:");
 				[%for (p in s.paymentmethod){ %]				reactPlatform.reply(context,"[%=p.Name%]");[%}%][%}%]
@@ -201,6 +216,9 @@ public class GreetingsBot {
 				[%for (p in s.paymentmethod){ %]
 				awaitingInput[%=a.Name%]SelectPayment	
 				.body(context -> {
+				String payment = (String) context.getIntent().getMatchedInput();
+				setPayment(payment);
+				reactPlatform.reply(context, "You selected " + payment);
 				reactPlatform.reply(context, "Please select the delivery location you wish to use for the selected items.");
 								reactPlatform.reply(context, "Here are all the available delivery locations:");
 				[%for (l in p.deliverylocation){ %]				reactPlatform.reply(context,"[%=l.Name%]");[%}%]
@@ -210,7 +228,10 @@ public class GreetingsBot {
 				[%for (s in a.selectdeliverylocationstep){ %]
 				awaitingInput[%=a.Name%]SelectLocation
 				.body(context -> {
+				String location = (String) context.getIntent().getMatchedInput();
+				setLocation(location);
 				reactPlatform.reply(context, "Operation completed Successfully!");
+				reactPlatform.reply(context, "[%=a.Name%] " + currentItem + " " + currentPayment + " " + currentLocation);
 				}).next().moveTo(awaitingInput);
 				[%}%]
 				
