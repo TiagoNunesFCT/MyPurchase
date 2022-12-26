@@ -1,0 +1,123 @@
+context Purchasebot{
+	constraint hasActions {
+	check: self.action.size() >= 1
+	}
+	
+	constraint hasGreetings {
+	check: self.greeting.size() >= 1
+	}
+
+}
+
+context Action{
+
+	critique NameStartWithUpperCase {
+		guard: self.satisfies("NameNotEmpty")
+		check: self.Name = self.Name.firstToUpperCase()
+		message: "Actions' names must start with Upper Case"
+		fix { 
+			title: "Rename To "+self.Name.firstToUpperCase()
+		   	do { self.Name=self.Name.firstToUpperCase();}
+		   	}
+	}
+	
+	constraint NameNotEmpty{
+		check: self.Name.isDefined()
+	}
+		
+	constraint DescriptionNotEmpty{
+		check: self.Description.isDefined()
+	}
+
+}
+
+context ProductAction{
+
+	constraint hasDeliveryLocationStep {
+	check: self.selectdeliverylocationstep.size() >= 1
+	}
+	
+	constraint hasPaymentMethodStep {
+	check: self.selectpaymentmethodstep.size() >= 1
+	}
+	
+	constraint hasItemsStep {
+	check: self.selectitmemsstep.size() >= 1
+	}
+	
+}
+
+
+context Step{
+
+	constraint noMoreThanOneNextStep {
+	check: (self.nextStep.size() <= 1 and self.nextStep.size() >= 0)
+	}
+}
+
+context Items{
+
+	critique NameStartWithUpperCase {
+		guard: self.satisfies("NameNotEmpty")
+		check: self.Name = self.Name.firstToUpperCase()
+		message: "Items' names should start with Upper Case"
+		fix { 
+			title: "Rename To "+self.Name.firstToUpperCase()
+		   	do { self.Name=self.Name.firstToUpperCase();}
+		   	}
+	}
+	
+	constraint NameNotEmpty{
+		check: self.Name.isDefined()
+	}
+		
+	constraint PriceNotNegative{
+		check: (self.Price.isDefined() and self.Price >=0)
+	}
+
+
+
+}
+
+context PaymentMethod{
+
+	critique NameStartWithUpperCase {
+		guard: self.satisfies("NameNotEmpty")
+		check: self.Name = self.Name.firstToUpperCase()
+		message: "Payment Methods' names must start with Upper Case"
+		fix { 
+			title: "Rename To "+self.Name.firstToUpperCase()
+		   	do { self.Name=self.Name.firstToUpperCase();}
+		   	}
+	}
+	
+	constraint NameNotEmpty{
+		check: self.Name.isDefined()
+	}
+		
+	constraint hasDeliveryLocations {
+	check: self.deliverylocation.size() >= 1
+	}
+
+
+
+}
+
+context DeliveryLocation{
+
+	critique NameStartWithUpperCase {
+		guard: self.satisfies("NameNotEmpty")
+		check: self.Name = self.Name.firstToUpperCase()
+		message: "Delivery Locations' names must start with Upper Case"
+		fix { 
+			title: "Rename To "+self.Name.firstToUpperCase()
+		   	do { self.Name=self.Name.firstToUpperCase();}
+		   	}
+	}
+	
+	constraint NameNotEmpty{
+		check: self.Name.isDefined()
+	}
+		
+}
+
