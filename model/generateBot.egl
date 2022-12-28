@@ -43,6 +43,9 @@ public class GreetingsBot {
      */
     public static void main(String[] args) {
 
+		[%for (a in ProductAction.all){ %]
+		String[][] itemsYouCan[%=a.Name%] = {{"","",""}[%for (s in a.selectitmemsstep){ %][%for (i in s.items){ %],{"[%=i.Name%]","[%=i.Price%]","[%=i.Amount%]"}[%}%][%}%]};
+		[%}%]
 
         /*
          * Define the intents our bot will react to.

@@ -74,6 +74,10 @@ context Items{
 	constraint PriceNotNegative{
 		check: (self.Price.isDefined() and self.Price >=0)
 	}
+	
+		constraint AmountNotNegative{
+		check: (self.Amount.isDefined() and self.Amount >=0)
+	}
 
 
 

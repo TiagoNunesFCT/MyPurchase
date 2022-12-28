@@ -12,13 +12,16 @@
         nextStep="//@action.0/@selectpaymentmethodstep.0">
       <items
           Name="Banana"
-          Price="10"/>
+          Price="10"
+          Amount="4"/>
       <items
           Name="Computer"
-          Price="5"/>
+          Price="5"
+          Amount="1"/>
       <items
           Name="iPhone 15"
-          Price="10000000"/>
+          Price="10000000"
+          Amount="199"/>
     </selectitmemsstep>
     <selectpaymentmethodstep
         nextStep="//@action.0/@selectdeliverylocationstep.0">
@@ -50,10 +53,12 @@
         nextStep="//@action.2/@selectpaymentmethodstep.0">
       <items
           Name="Fish Tank"
-          Price="50"/>
+          Price="50"
+          Amount="1"/>
       <items
           Name="Fish"
-          Price="2"/>
+          Price="2"
+          Amount="50"/>
     </selectitmemsstep>
     <selectpaymentmethodstep
         nextStep="//@action.2/@selectdeliverylocationstep.0">

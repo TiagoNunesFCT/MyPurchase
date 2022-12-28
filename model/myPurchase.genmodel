@@ -25,6 +25,7 @@
     <genClasses ecoreClass="myPurchase.ecore#//Items">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute myPurchase.ecore#//Items/Name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute myPurchase.ecore#//Items/Price"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute myPurchase.ecore#//Items/Amount"/>
     </genClasses>
     <genClasses ecoreClass="myPurchase.ecore#//PaymentMethod">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute myPurchase.ecore#//PaymentMethod/Name"/>
