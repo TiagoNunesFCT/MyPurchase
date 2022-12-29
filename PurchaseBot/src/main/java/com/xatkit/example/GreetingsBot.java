@@ -27,7 +27,7 @@ public class GreetingsBot {
 	static String currentItem = "";
 	static String currentPayment = "";
 	static String currentLocation = "";
-	int currentItemPrice = 0;
+	static String currentItemPrice = "";
 
 	static void setItem(String item) {
 		currentItem = item;
@@ -39,6 +39,10 @@ public class GreetingsBot {
 
 	static void setLocation(String location) {
 		currentLocation = location;
+	}
+
+	static void setPrice(String price) {
+		currentItemPrice = price;
 	}
 
 	/*
@@ -175,6 +179,15 @@ public class GreetingsBot {
 		awaitingInputBuySelectItems.body(context -> {
 			String item = (String) context.getIntent().getMatchedInput();
 			setItem(item);
+
+			String price = "0";
+			for (String[] c : itemsYouCanBuy) {
+				if (c[0].trim().toLowerCase().equals(item.trim().toLowerCase())) {
+					price = c[1].trim().toLowerCase();
+				}
+			}
+			setPrice(price);
+
 			reactPlatform.reply(context, "You selected " + item);
 			reactPlatform.reply(context, "Please select the payment method you wish to use.");
 			reactPlatform.reply(context, "Here are all the available payment methods:");
@@ -203,7 +216,8 @@ public class GreetingsBot {
 			String location = (String) context.getIntent().getMatchedInput();
 			setLocation(location);
 			reactPlatform.reply(context, "Operation completed Successfully!");
-			reactPlatform.reply(context, "Buy " + currentItem + " " + currentPayment + " " + currentLocation);
+			reactPlatform.reply(context, "Action: Buy Item: " + currentItem + " Price: " + currentItemPrice
+					+ " Payment Method: " + currentPayment + " Delivery Location: " + currentLocation);
 		}).next().moveTo(awaitingInput);
 
 		/*
@@ -222,6 +236,15 @@ public class GreetingsBot {
 		awaitingInputSellSelectItems.body(context -> {
 			String item = (String) context.getIntent().getMatchedInput();
 			setItem(item);
+
+			String price = "0";
+			for (String[] c : itemsYouCanSell) {
+				if (c[0].trim().toLowerCase().equals(item.trim().toLowerCase())) {
+					price = c[1].trim().toLowerCase();
+				}
+			}
+			setPrice(price);
+
 			reactPlatform.reply(context, "You selected " + item);
 			reactPlatform.reply(context, "Please select the payment method you wish to use.");
 			reactPlatform.reply(context, "Here are all the available payment methods:");
@@ -252,7 +275,8 @@ public class GreetingsBot {
 			String location = (String) context.getIntent().getMatchedInput();
 			setLocation(location);
 			reactPlatform.reply(context, "Operation completed Successfully!");
-			reactPlatform.reply(context, "Sell " + currentItem + " " + currentPayment + " " + currentLocation);
+			reactPlatform.reply(context, "Action: Sell Item: " + currentItem + " Price: " + currentItemPrice
+					+ " Payment Method: " + currentPayment + " Delivery Location: " + currentLocation);
 		}).next().moveTo(awaitingInput);
 
 		/*
